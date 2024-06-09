@@ -1,0 +1,16 @@
+$TTL 86400	; 1 day
+@			IN	SOA	ns.home.tomputjef.com. home.tomputjef.com. (
+					2024060304 ; serial
+					3600       ; refresh (1 hour)
+					3600       ; retry (1 hour)
+					2419200    ; expire (4 weeks)
+					3600       ; minimum (1 hour)
+					)
+			IN	NS	ns.home.tomputjef.com.
+$ORIGIN 89.168.192.in-addr.arpa.
+; PTR record for clients
+2			IN	PTR     nvr-sda.home.tomputjef.com.
+252			IN	PTR     raspberrypi-sda.home.tomputjef.com.
+252			IN	PTR     pi-portainer-sda.home.tomputjef.com.
+253			IN	PTR     mikrotik-sda.home.tomputjef.com.
+254			IN	PTR     gw-sda.home.tomputjef.com.

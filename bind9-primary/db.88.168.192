@@ -1,0 +1,30 @@
+$TTL 86400	; 1 day
+@			IN	SOA	ns.home.tomputjef.com. home.tomputjef.com. (
+					2024060304 ; serial
+					3600       ; refresh (1 hour)
+					3600       ; retry (1 hour)
+					2419200    ; expire (4 weeks)
+					3600       ; minimum (1 hour)
+					)
+			IN	NS	ns.home.tomputjef.com.
+1			IN	PTR     ivy-pve.home.tomputjef.com.
+2			IN	PTR     kaby-pve.home.tomputjef.com.
+3			IN	PTR     coffee-pve.home.tomputjef.com.
+4			IN	PTR	ns.home.tomputjef.com.
+4			IN	PTR     pi-portainer.home.tomputjef.com.
+4			IN	PTR     raspberrypi.home.tomputjef.com.
+4			IN	PTR     smart.home.tomputjef.com.
+30			IN	PTR     k3s-master.home.tomputjef.com.
+31			IN	PTR     k3s-worker1.home.tomputjef.com.
+32			IN	PTR     k3s-worker2.home.tomputjef.com.
+40			IN	PTR     rancher.home.tomputjef.com.
+40			IN	PTR     traefik.home.tomputjef.com.
+40			IN	PTR     authentik.home.tomputjef.com.
+61			IN	PTR     eshot1.home.tomputjef.com.
+62			IN	PTR     eshot2.home.tomputjef.com.
+63			IN	PTR     eshot3.home.tomputjef.com.
+64			IN	PTR     kibana.home.tomputjef.com.
+65			IN	PTR     fleet.home.tomputjef.com.
+66			IN	PTR     logstash.home.tomputjef.com.
+70			IN	PTR     esmon.home.tomputjef.com.
+254			IN	PTR     gw.home.tomputjef.com.

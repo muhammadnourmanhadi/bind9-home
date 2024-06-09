@@ -1,0 +1,63 @@
+acl trustedclients {
+    localhost;
+    localnets;
+	// LAN rumah bintaro
+    192.168.88.0/24;
+	// LAN rumah sidoarjo
+    192.168.89.0/24;
+	// segment tailnet
+	100.64.0.0/10;
+	// segment static tailnet
+	100.100.0.0/16;
+};
+
+options {
+	// all relative paths use this directory as a base
+	directory "/var/cache/bind";
+
+    // hide version number from clients for security reasons.
+    version "not currently available";
+
+	// this ensures that any reverse map for private IPs
+	empty-zones-enable yes;
+
+    listen-on { 192.168.88.4; };
+    listen-on-v6 { none; };
+
+    forwarders {
+		127.0.0.1 port 5053;
+    };
+
+	// forwarding DNS server mode
+    forward only;
+
+	// allow recursive queries
+    recursion yes;
+
+	// permit query to trusted clients only
+    allow-query { trustedclients; };
+
+	// explicitly enable dnssec fix error resolving (chase DS servers) & (no valid DS)
+    dnssec-validation auto;
+
+	// conform to RFC1035
+    auth-nxdomain no;
+
+	// notify slave server whenever there are updates
+    also-notify { 192.168.89.252; };
+
+	// ip used to send NOTIFY messages.
+	notify-source 192.168.88.4;
+
+	// allow zone transfers to slave server
+    allow-transfer { localhost; 192.168.89.252; };
+
+	// enable Incremental Zone Transfers IXFR 
+	ixfr-from-differences yes;
+
+    //enable response policy zone.
+    response-policy {
+    	zone "pro.hagezi.local";
+    };
+
+};
