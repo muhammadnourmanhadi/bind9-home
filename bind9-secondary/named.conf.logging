@@ -1,0 +1,100 @@
+logging {
+    channel default_log {
+        file "/var/log/named/default.log" versions 3 size 20m;
+        severity info;
+        print-time yes;
+        print-category yes;
+        print-severity yes;
+    };
+    channel auth_servers_log {
+        file "/var/log/named/auth_servers.log" versions 100 size 20m;
+        severity info;
+        print-time yes;
+        print-category yes;
+        print-severity yes;
+     };
+    channel dnssec_log {
+        file "/var/log/named/dnssec.log" versions 3 size 20m;
+        severity info;
+        print-time yes;
+        print-category yes;
+        print-severity yes;
+    };
+    channel zone_transfers_log {
+        file "/var/log/named/zone_transfers.log" versions 3 size 20m;
+        severity info;
+        print-time yes;
+        print-category yes;
+        print-severity yes;
+    };
+    channel ddns_log {
+        file "/var/log/named/ddns.log" versions 3 size 20m;
+        severity info;
+        print-time yes;
+        print-category yes;
+        print-severity yes;
+    };
+    channel client_security_log {
+        file "/var/log/named/client_security.log" versions 3 size 20m;
+        severity info;
+        print-time yes;
+        print-category yes;
+        print-severity yes;
+    };
+    channel rate_limiting_log {
+        file "/var/log/named/rate_limiting.log" versions 3 size 20m;
+        severity info;
+        print-time yes;
+        print-category yes;
+        print-severity yes;
+    };
+    channel rpz_log {
+        file "/var/log/named/rpz.log" versions 3 size 20m;
+        severity info;
+        print-time yes;
+        print-category yes;
+        print-severity yes;
+    };
+    channel queries_log {
+        file "/var/log/named/queries.log" versions 600 size 20m;
+        severity info;
+        print-time yes;
+        print-category yes;
+        print-severity yes;
+    };
+    channel query-errors_log {
+        file "/var/log/named/query-errors.log" versions 5 size 20m;
+        severity dynamic;
+        print-time yes;
+        print-category yes;
+        print-severity yes;
+    };
+
+    category default { default_log; };
+    category config { default_log; };
+    category dispatch { default_log; };
+    category network { default_log; };
+    category general { default_log; };
+    category zoneload { default_log; };
+    category resolver { auth_servers_log; };
+    category cname { auth_servers_log; };
+    category delegation-only { auth_servers_log; };
+    category lame-servers { auth_servers_log; };
+    category edns-disabled { auth_servers_log; };
+    category dnssec { dnssec_log; };
+    category notify { zone_transfers_log; };
+    category xfer-in { zone_transfers_log; };
+    category xfer-out { zone_transfers_log; };
+    category update{ ddns_log; };
+    category update-security { ddns_log; };
+    category client{ client_security_log; };
+    category security { client_security_log; };
+    category rate-limit { rate_limiting_log; };
+    category spill { rate_limiting_log; };
+    category database { rate_limiting_log; };
+    category rpz { rpz_log; };
+    category trust-anchor-telemetry { default_log; };
+    category queries { queries_log; };
+    category query-errors {query-errors_log; };
+
+};

@@ -1,0 +1,35 @@
+//
+// Do any local configuration here
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";
+
+zone "home.tomputjef.com" IN {
+        type slave;
+        masters { 192.168.88.4; };
+        masterfile-format text;
+        file "db.home.tomputjef.com";
+};
+
+zone "88.168.192.in-addr.arpa" IN {
+        type slave;
+        masters { 192.168.88.4; };
+        masterfile-format text;
+        file "db.88.168.192";
+};
+
+zone "89.168.192.in-addr.arpa" IN {
+        type slave;
+        masters { 192.168.88.4; };
+        masterfile-format text;
+        file "db.89.168.192";
+};
+
+zone "pro.hagezi.local" {
+        type slave;
+        masters { 192.168.88.4; };
+        masterfile-format text;
+        file "db.pro.hagezi.local";
+};
